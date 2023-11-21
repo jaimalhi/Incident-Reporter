@@ -14,3 +14,8 @@
   - Status: Initially set to OPEN.
 - Admin users are able to review reports and respond accordingly
   - can update all report status via password
+
+## Technologies
+
+- Angular
+- Leaflet

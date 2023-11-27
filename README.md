@@ -1,6 +1,6 @@
 # Villian (Incident) Reporter
 
-## Information
+## Functionality
 
 - An interactive incident reporting application
 - allows users to create new incident reports with:
@@ -14,6 +14,10 @@
   - Status: Initially set to OPEN.
 - Admin users are able to review reports and respond accordingly
   - can update all report status via password
+
+## API info
+
+- leaflet with typescript & `npm install leaflet` `npm install @types/leaflet`
 
 ## Technologies
 

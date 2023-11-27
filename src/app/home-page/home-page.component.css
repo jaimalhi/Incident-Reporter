@@ -1,0 +1,9 @@
+nav {
+  height: 7vh !important;
+}
+app-map {
+  height: 50vh;
+}
+app-report-list {
+  height: 43vh;
+}

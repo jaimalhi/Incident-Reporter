@@ -36,6 +36,11 @@ export class MapComponent implements OnInit {
   //   	.bindPopup("<b>Stanley Park</b><br />5 nuisance reports")
   //   L.marker([49.2781, -122.9199]).addTo(this.map)
   //   	.bindPopup("<b>SFU Burnaby</b><br />2 nuisance reports")
-
   // }
+
+  //   showClick() {
+  //     this.map.on('click', (event) => {
+  //       alert(`Lat, Long: ${event.latlng.lat}, ${event.latlng.lng}`);
+  //     });
+  //   }
 }

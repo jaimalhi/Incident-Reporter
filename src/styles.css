@@ -2,6 +2,8 @@
 body {
   background-color: #28231d;
   color: #fff;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
   margin: 0;
   padding: 0;

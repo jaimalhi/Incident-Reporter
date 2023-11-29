@@ -1,6 +1,26 @@
-section {
-  height: 43vh;
+table {
   width: 100vw;
-
   border: 1px solid #fff;
+  margin: 0;
+}
+
+thead {
+  border-top-width: 3px !important;
+  border-top-color: #5e5e5e !important;
+}
+
+#fixed-thead {
+  max-height: 4vh !important;
+}
+
+#scrollable-tbody {
+  display: block;
+  max-height: 38vh !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+td,
+th {
+  width: 20vw;
 }

@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MapComponent } from './home-page/map/map.component';
 import { ReportListComponent } from './home-page/report-list/report-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     MapComponent,
-    ReportListComponent
+    ReportListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
+/* CSS for navbar, for a total of 100vh 
 nav {
-  height: 7vh !important;
-}
+  height: 7vh;
+} */
 app-map {
   height: 50vh;
 }

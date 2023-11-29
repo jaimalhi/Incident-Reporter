@@ -5,8 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent {
-  routeNewReport() {
-    // TODO: Route to new-report component
-  }
-}
+export class HomePageComponent {}

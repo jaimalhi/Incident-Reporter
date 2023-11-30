@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ReportComponent } from './report-utils/report/report.component';
 import { NewReportComponent } from './new-report/new-report.component';
 import { ReportsService } from './reports.service';
+import { ReportViewComponent } from './report-view/report-view.component';
 
 // wait for this Promise to resolve before continuing
 export function initializeApp(rs: ReportsService) {
@@ -29,6 +30,7 @@ export function initializeApp(rs: ReportsService) {
     NavbarComponent,
     ReportComponent,
     NewReportComponent,
+    ReportViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -49,7 +49,7 @@
     />
   </div>
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">URL</span>
+    <span class="input-group-text" id="basic-addon1">Picture URL</span>
     <input
       type="text"
       class="form-control"
@@ -65,7 +65,7 @@
 </form>
 <hr />
 <div id="errors">
-  <!-- TODO: make these look nicer -->
+  <!-- TODO: Error display -->
   <span *ngIf="form.controls['reporterName'].errors as name_error"
     >User Name Error: {{ name_error | json }}</span
   >

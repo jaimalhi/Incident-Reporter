@@ -8,7 +8,6 @@ import {
 import { ReportsService } from '../reports.service';
 import { IncidentReport } from '../report-utils/incidentReport';
 
-import { env } from 'src/environments/environment';
 import * as L from 'leaflet';
 
 interface PartialReport {
@@ -25,15 +24,16 @@ interface PartialReport {
   styleUrls: ['./new-report.component.css'],
 })
 export class NewReportComponent implements OnInit {
-  // https://272.selfip.net/apps/nIVu0dLr1r/collections/incident-reports/documents
-  private apiUrl = env.apiUrl;
   private map!: L.Map;
-  private location: number[] = [];
+  private location: number[] = [49.276765, -122.917957];
   form: FormGroup;
 
   constructor(private rs: ReportsService) {
+    const urlPattern =
+      '^(http://www.|https://www.|http://|https://)?[a-z0-9]+([-.]{1}[a-z0-9]+)*.[a-z]{2,5}(:[0-9]{1,5})?(/.*)?$';
+
     let formControls = {
-      picture: new FormControl(''),
+      picture: new FormControl('', [Validators.pattern(urlPattern)]),
       extraInfo: new FormControl(''),
       reporterName: new FormControl('', [
         Validators.required,
@@ -73,7 +73,8 @@ export class NewReportComponent implements OnInit {
       rInfo.reporterNum,
       rInfo.criminalName
     );
-    console.log(newReport);
+    // console.log(newReport);
+    this.rs.add(newReport);
   }
 
   inputValidator(control: FormControl) {
@@ -100,10 +101,9 @@ export class NewReportComponent implements OnInit {
 
   showClick() {
     this.map.on('click', (e) => {
-      //   alert(`Lat, Long: ${event.latlng.lat}, ${event.latlng.lng}`);
       L.popup()
         .setLatLng(e.latlng)
-        .setContent(`You clicked the map at ${e.latlng.toString()}`)
+        .setContent(`Incident at ${e.latlng.toString()}`)
         .openOn(this.map);
       //set current location to clicked
       this.location = [];

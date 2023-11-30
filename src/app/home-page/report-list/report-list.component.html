@@ -16,14 +16,11 @@
   id="scrollable-tbody"
 >
   <tbody class="scrollable-tbody">
-    <!-- <tr>
-      <td>City Name</td>
-      <td>Joni D</td>
-      <td>2023-11-01 (13:30)</td>
-      <td>RESOLVED</td>
-      <td><a routerLink="/report/:key">MORE INFO ICON</a></td>
-      <td><a routerLink="/report/delete">DELETE ICON</a></td>
-    </tr> -->
+    <app-report
+      *ngFor="let r of reports"
+      [report]="r"
+      (delete)="onReportDelete($event)"
+    ></app-report>
   </tbody>
 </table>
 <!-- </div> -->

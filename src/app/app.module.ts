@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MapComponent } from './home-page/map/map.component';
 import { ReportListComponent } from './home-page/report-list/report-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ReportComponent } from './report-utils/report/report.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MapComponent,
     ReportListComponent,
     NavbarComponent,
+    ReportComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

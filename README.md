@@ -18,6 +18,7 @@
 ## API info
 
 - leaflet with typescript & `npm install leaflet` `npm install @types/leaflet`
+- Geocoding `https://geocode.maps.co/`
 
 ## Technologies
 

@@ -1,0 +1,20 @@
+<tr>
+  <td>{{ reportLocation }}</td>
+  <td>{{ report.criminalName }}</td>
+  <td>{{ report.time | date : "MMM d, y - HH:mm" }}</td>
+  <td>{{ report.status | uppercase }}</td>
+  <td>
+    <a
+      class="table-links"
+      id="more-info"
+      [routerLink]="['/report', report.key]"
+    >
+      <img src="../../../assets/plus.png" width="28px" />
+    </a>
+  </td>
+  <td>
+    <a class="table-links" id="delete" (click)="onDelete($event, report.key)">
+      <img src="../../../assets/remove.png" width="28px" />
+    </a>
+  </td>
+</tr>

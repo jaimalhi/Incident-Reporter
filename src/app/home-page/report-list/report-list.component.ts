@@ -1,51 +1,24 @@
-import { Component } from '@angular/core';
-import { env } from '../../../environments/environment';
+import { Component, OnInit } from '@angular/core';
 import { IncidentReport } from 'src/app/report-utils/incidentReport';
+import { ReportsService } from 'src/app/reports.service';
 
 @Component({
   selector: 'app-report-list',
   templateUrl: './report-list.component.html',
   styleUrls: ['./report-list.component.css'],
 })
-export class ReportListComponent {
-  private apiUrl = env.apiUrl;
-
-  reports: IncidentReport[];
+export class ReportListComponent implements OnInit {
+  reports: IncidentReport[] = [];
   query: string = '';
-  constructor() {
-    this.reports = [
-      new IncidentReport(
-        0,
-        new Date(),
-        'OPEN',
-        'image.jpg',
-        [49.280061, -122.792304],
-        'popping car tires',
-        'Javi',
-        '123-456-7890',
-        'Pig Lord'
-      ),
-      new IncidentReport(
-        1,
-        new Date(),
-        'CLOSED',
-        'image.jpg',
-        [49.205336, -122.78974],
-        'spraying mace',
-        'Javi',
-        '123-456-7890',
-        'Surrey Jack'
-      ),
-    ];
+  constructor(private rs: ReportsService) {}
+
+  ngOnInit(): void {
+    this.reports = this.rs.get();
   }
 
   onReportDelete(event: { rKey: number }) {
     //TODO: show modal asking for password
-
     let reportKey = event.rKey;
-    // remove report from list
-    this.reports = this.reports.filter(
-      (r: { key: number }) => r.key != reportKey
-    );
+    this.reports = this.rs.delete(reportKey);
   }
 }

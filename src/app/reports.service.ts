@@ -94,10 +94,11 @@ export class ReportsService {
   }
 
   add(newReport: IncidentReport) {
-    newReport.time = new Date();
     // get 1 past max num in keyList, set as new key
     let maxNumber = Math.max(...this.keyList);
     newReport.key = maxNumber + 1;
+    newReport.time = new Date();
+    newReport.status = 'open';
     // add to report list
     this.reports.push(newReport);
   }

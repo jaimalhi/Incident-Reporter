@@ -9,7 +9,6 @@ import { ReportsService } from 'src/app/reports.service';
 })
 export class ReportListComponent implements OnInit {
   reports: IncidentReport[] = [];
-  query: string = '';
   constructor(private rs: ReportsService) {}
 
   ngOnInit(): void {

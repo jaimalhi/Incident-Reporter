@@ -1,0 +1,27 @@
+.leaflet-container {
+  height: 45vh;
+  width: 100vw;
+}
+
+hr {
+  width: 101vw;
+  padding: 0;
+  margin: 0;
+  height: 5px;
+  background-color: #fff;
+}
+
+form {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

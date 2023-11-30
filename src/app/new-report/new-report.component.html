@@ -1,1 +1,65 @@
-<p>new-report works!</p>
+<section>
+  <div id="add-map"></div>
+  <h4 class="my-2">Click on the location of the disturbance above</h4>
+</section>
+<hr />
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="User Name"
+      aria-label="Username"
+      id="reporterName"
+      formControlName="reporterName"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">#</span>
+    <input
+      type="tel"
+      class="form-control"
+      placeholder="User Number"
+      aria-label="UserNumber"
+      id="reporterNum"
+      formControlName="reporterNum"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Criminal Name"
+      aria-label="CriminalName"
+      id="criminalName"
+      formControlName="criminalName"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">+</span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Additional Info"
+      aria-label="AdditionalInfo"
+      id="extraInfo"
+      formControlName="extraInfo"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">URL</span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Optional Picture"
+      aria-label="Optional Picture"
+      id="picture"
+      formControlName="picture"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+    Submit Report
+  </button>
+</form>

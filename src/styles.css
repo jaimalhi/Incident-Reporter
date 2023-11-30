@@ -3,7 +3,7 @@ body {
   background-color: #28231d;
   color: #fff;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
 
   margin: 0;
   padding: 0;

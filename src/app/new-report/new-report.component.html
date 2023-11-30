@@ -5,7 +5,7 @@
 <hr />
 <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">@</span>
+    <span class="input-group-text" id="basic-addon1">Your Name</span>
     <input
       type="text"
       class="form-control"
@@ -16,7 +16,7 @@
     />
   </div>
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">#</span>
+    <span class="input-group-text" id="basic-addon1">Phone #</span>
     <input
       type="tel"
       class="form-control"
@@ -27,7 +27,7 @@
     />
   </div>
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">@</span>
+    <span class="input-group-text" id="basic-addon1">Criminal Name</span>
     <input
       type="text"
       class="form-control"
@@ -38,7 +38,7 @@
     />
   </div>
   <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">+</span>
+    <span class="input-group-text" id="basic-addon1">More Info</span>
     <input
       type="text"
       class="form-control"
@@ -63,3 +63,16 @@
     Submit Report
   </button>
 </form>
+<hr />
+<div id="errors">
+  <!-- TODO: make these look nicer -->
+  <span *ngIf="form.controls['reporterName'].errors as name_error"
+    >User Name Error: {{ name_error | json }}</span
+  >
+  <span *ngIf="form.controls['reporterNum'].errors as name_error"
+    >User Number Error: {{ name_error | json }}</span
+  >
+  <span *ngIf="form.controls['criminalName'].errors as name_error"
+    >Criminal Name Error: {{ name_error | json }}</span
+  >
+</div>

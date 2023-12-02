@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ConfirmDeleteComponent } from 'src/app/confirm-delete/confirm-delete.component';
 import { IncidentReport } from 'src/app/report-utils/incidentReport';
 import { ReportsService } from 'src/app/reports.service';
 
@@ -8,7 +9,10 @@ import { ReportsService } from 'src/app/reports.service';
   styleUrls: ['./report-list.component.css'],
 })
 export class ReportListComponent implements OnInit {
+  @ViewChild(ConfirmDeleteComponent)
+  confirmDeleteDialog!: ConfirmDeleteComponent;
   reports: IncidentReport[] = [];
+  reportKey: number = -1;
   constructor(private rs: ReportsService) {}
 
   ngOnInit(): void {
@@ -16,8 +20,8 @@ export class ReportListComponent implements OnInit {
   }
 
   onReportDelete(event: { rKey: number }) {
-    //TODO: show modal asking for password
-    let reportKey = event.rKey;
-    this.reports = this.rs.delete(reportKey);
+    this.reportKey = event.rKey;
+    this.confirmDeleteDialog.openDialog();
+    // this.reports = this.rs.delete(reportKey);
   }
 }

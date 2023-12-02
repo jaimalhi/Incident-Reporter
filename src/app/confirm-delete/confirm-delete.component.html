@@ -1,0 +1,27 @@
+<dialog #dialog>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onConfirmDelete(form.value)"
+    method="dialog"
+  >
+    <div class="input-group mb-3">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Enter Password"
+        aria-label="password"
+        id="password"
+        formControlName="password"
+        autofocus
+      />
+    </div>
+    <div id="delete-modal-btns">
+      <button type="submit" class="btn btn-secondary" (click)="closeDialog()">
+        Cancel
+      </button>
+      <button type="submit" class="btn btn-danger" [disabled]="!form.valid">
+        Delete
+      </button>
+    </div>
+  </form>
+</dialog>

@@ -170,7 +170,7 @@ export class ReportsService {
       },
       error: (error) => {
         console.error('Error deleting report:', error);
-        //TODO: Handle error here (e.g., show error message)
+        // Handle error here (e.g., show error message)
       },
     });
     return this.reports;

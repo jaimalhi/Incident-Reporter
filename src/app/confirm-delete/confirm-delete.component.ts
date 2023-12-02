@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { PasswordHashService } from '../password-hash.service';
 import { ReportsService } from '../reports.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-delete',
@@ -32,6 +33,7 @@ export class ConfirmDeleteComponent {
 
   onConfirmDelete(password: string) {
     console.log(password);
+    console.log(this.rKey);
     // this.hashService.getMd5Digest(password).subscribe((response) => {
     //   this.validateDigest(response.Digest);
     // });
@@ -42,6 +44,7 @@ export class ConfirmDeleteComponent {
     if (digest === expectedDigest) {
       console.log('Digest matches!');
       // Handle matching digest
+      this.rs.delete(this.rKey);
     } else {
       console.log('Digest does not match.');
       // Handle non-matching digest

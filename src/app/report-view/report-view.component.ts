@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReportsService } from '../reports.service';
 import { IncidentReport } from '../report-utils/incidentReport';
 import { GeocodeService } from '../geocode.service';
@@ -21,7 +21,8 @@ export class ReportViewComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private rs: ReportsService,
-    private gs: GeocodeService
+    private gs: GeocodeService,
+    private router: Router
   ) {
     this.imageIncluded = false;
     this.extraInfoIncluded = false;
@@ -66,5 +67,12 @@ export class ReportViewComponent implements OnInit {
 
   changeStatus() {
     this.confirmPasswordDialog.openDialog(this.report);
+  }
+
+  backToHome() {
+    this.router.navigateByUrl('/', { skipLocationChange: false }).then(() => {
+      this.router.navigate(['/home']);
+      window.location.reload();
+    });
   }
 }

@@ -27,7 +27,7 @@
       {{ report.reporterNum | phoneFormat }}
     </li>
   </ul>
-  <a routerLink="/home" class="btn btn-primary">Go Back</a>
+  <a class="btn btn-primary" (click)="backToHome()">Go Back</a>
 </div>
 
 <app-confirm-password [rKey]="rKey" purpose="change"></app-confirm-password>

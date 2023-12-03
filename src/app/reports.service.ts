@@ -139,7 +139,7 @@ export class ReportsService {
       },
       error: (error) => {
         console.error('Error adding report:', error);
-        //TODO Handle error here (e.g., show error message)
+        //Handle error here (e.g., show error message)
       },
     });
   }

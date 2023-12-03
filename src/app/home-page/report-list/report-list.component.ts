@@ -13,10 +13,12 @@ export class ReportListComponent implements OnInit {
   confirmPasswordDialog!: ConfirmPasswordComponent;
   reports: IncidentReport[] = [];
   reportKey: number = -1;
+  selectedSort = 'time'; // default sorting option
   constructor(private rs: ReportsService) {}
 
   ngOnInit(): void {
     this.reports = this.rs.get();
+    this.sortReports(this.selectedSort); // default sorting
   }
 
   onReportDelete(event: { rKey: number }) {
@@ -24,5 +26,18 @@ export class ReportListComponent implements OnInit {
     this.confirmPasswordDialog.openDialog(
       new IncidentReport(-999, new Date(), 'closed', '', [], '', '', '', 'FAKE')
     );
+  }
+
+  sortReports(field: string): void {
+    this.reports.sort((a, b) => {
+      if (field === 'time') {
+        return new Date(a.time).getTime() - new Date(b.time).getTime();
+      } else if (field === 'name') {
+        return a.criminalName.localeCompare(b.criminalName);
+      } else if (field === 'status') {
+        return a.status.localeCompare(b.status);
+      }
+      return 0; // default return
+    });
   }
 }

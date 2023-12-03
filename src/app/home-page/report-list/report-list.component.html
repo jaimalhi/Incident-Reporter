@@ -1,3 +1,8 @@
+<select [(ngModel)]="selectedSort" (change)="sortReports(selectedSort)">
+  <option value="time">Sort by: Time</option>
+  <option value="name">Sort by: Name</option>
+  <option value="status">Sort by: Status</option>
+</select>
 <table class="table table-striped table-light table-bordered" id="fixed-thead">
   <thead>
     <tr>

@@ -10,6 +10,11 @@ thead {
   border-top-color: #5e5e5e !important;
 }
 
+td,
+th {
+  /* width: 20vw; */
+}
+
 #fixed-thead {
   max-height: 4vh !important;
 }
@@ -21,7 +26,8 @@ thead {
   overflow-x: hidden;
 }
 
-td,
-th {
-  width: 20vw;
+select {
+  text-align: center;
+  width: 100vw;
+  padding: 3px;
 }

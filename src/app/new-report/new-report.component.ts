@@ -25,7 +25,7 @@ interface PartialReport {
 })
 export class NewReportComponent implements OnInit {
   private map!: L.Map;
-  private location: number[] = [49.276765, -122.917957];
+  private location: number[] = [-84.949659, 69.790493];
   form: FormGroup;
 
   constructor(private rs: ReportsService) {

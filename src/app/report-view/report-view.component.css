@@ -8,3 +8,13 @@
   margin: 2rem;
   width: 25rem;
 }
+
+#change-btn {
+  text-decoration: none;
+  user-select: none;
+}
+
+#change-btn:hover {
+  cursor: pointer;
+  color: #a83832;
+}

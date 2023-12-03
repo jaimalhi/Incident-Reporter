@@ -180,6 +180,38 @@ export class ReportsService {
     return this.http.get(`${this.apiUrl}/documents/${rKey}`);
   }
 
+  updateReportStatus(report: IncidentReport): Observable<any> {
+    // Use HttpHeaders to set Content-Type
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    report.status = report.status.toLowerCase() === 'open' ? 'closed' : 'open';
+    // custom JSON format
+    let jsonReport = {
+      key: report.key,
+      data: [
+        {
+          reporterName: report.reporterName,
+          reporterNum: report.reporterNum,
+          criminalInfo: report.criminalName,
+          location: report.location,
+          picture: report.picture,
+          extraInfo: report.extraInfo,
+          time: report.time,
+          status: report.status,
+        },
+      ],
+    };
+    let jsonBody = JSON.stringify(jsonReport);
+
+    return this.http
+      .put<any>(`${this.apiUrl}/documents/${report.key}`, jsonBody, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   get() {
     return this.reports;
   }

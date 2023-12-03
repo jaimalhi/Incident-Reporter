@@ -18,7 +18,9 @@
     <li class="list-group-item"><b>Location:</b> {{ cityName }}</li>
     <li class="list-group-item">
       <b>Status:</b> {{ report.status | uppercase }}
-      <a href="#" class="card-link">(CHANGE)</a>
+      <a class="card-link" (click)="changeStatus()" id="change-btn">
+        (CHANGE)</a
+      >
     </li>
     <li class="list-group-item">
       <b>Reported By:</b> {{ report.reporterName }} -
@@ -27,3 +29,5 @@
   </ul>
   <a routerLink="/home" class="btn btn-primary">Go Back</a>
 </div>
+
+<app-confirm-delete [rKey]="rKey"></app-confirm-delete>

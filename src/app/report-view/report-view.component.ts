@@ -45,6 +45,16 @@ export class ReportViewComponent implements OnInit {
     });
   }
 
+  changeStatus() {
+    //TODO: ask for password for change
+    let currStatus =
+      this.report.status.toLowerCase() === 'open' ? 'closed' : 'open';
+    this.rs.updateReportStatus(this.report).subscribe((resp) => {
+      this.report.status = currStatus;
+    });
+    console.log(`Changing Status from ${this.report.status} to ${currStatus}`);
+  }
+
   fetchMapLocation(): void {
     // Assuming report.location is an array of [latitude, longitude]
     if (this.report.location && this.report.location.length === 2) {

@@ -13,7 +13,7 @@ import { ReportComponent } from './report-utils/report/report.component';
 import { NewReportComponent } from './new-report/new-report.component';
 import { ReportsService } from './reports.service';
 import { ReportViewComponent } from './report-view/report-view.component';
-import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password';
 import { PhoneFormatPipe } from './phone-format.pipe';
 
 // wait for this Promise to resolve before continuing
@@ -33,7 +33,7 @@ export function initializeApp(rs: ReportsService) {
     ReportComponent,
     NewReportComponent,
     ReportViewComponent,
-    ConfirmDeleteComponent,
+    ConfirmPasswordComponent,
     PhoneFormatPipe,
   ],
   imports: [

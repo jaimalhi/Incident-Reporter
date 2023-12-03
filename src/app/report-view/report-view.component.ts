@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReportsService } from '../reports.service';
 import { IncidentReport } from '../report-utils/incidentReport';
 import { GeocodeService } from '../geocode.service';
+import { ConfirmPasswordComponent } from '../confirm-password/confirm-password';
 
 @Component({
   selector: 'app-report-view',
@@ -10,6 +11,8 @@ import { GeocodeService } from '../geocode.service';
   styleUrls: ['./report-view.component.css'],
 })
 export class ReportViewComponent implements OnInit {
+  @ViewChild(ConfirmPasswordComponent)
+  confirmPasswordDialog!: ConfirmPasswordComponent;
   rKey: number = this.activatedRoute.snapshot.params['rKey'];
   report!: IncidentReport;
   imageIncluded: boolean;
@@ -24,8 +27,6 @@ export class ReportViewComponent implements OnInit {
     this.extraInfoIncluded = false;
     this.cityName = 'N/A';
   }
-
-  //TODO: add a change option to status with password
 
   ngOnInit(): void {
     this.rs.getSingleReport(this.rKey).subscribe((resp) => {
@@ -45,16 +46,6 @@ export class ReportViewComponent implements OnInit {
     });
   }
 
-  changeStatus() {
-    //TODO: ask for password for change
-    let currStatus =
-      this.report.status.toLowerCase() === 'open' ? 'closed' : 'open';
-    this.rs.updateReportStatus(this.report).subscribe((resp) => {
-      this.report.status = currStatus;
-    });
-    console.log(`Changing Status from ${this.report.status} to ${currStatus}`);
-  }
-
   fetchMapLocation(): void {
     // Assuming report.location is an array of [latitude, longitude]
     if (this.report.location && this.report.location.length === 2) {
@@ -71,5 +62,9 @@ export class ReportViewComponent implements OnInit {
     if (extra !== '') {
       this.extraInfoIncluded = true;
     }
+  }
+
+  changeStatus() {
+    this.confirmPasswordDialog.openDialog(this.report);
   }
 }

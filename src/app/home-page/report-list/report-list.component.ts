@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ConfirmDeleteComponent } from 'src/app/confirm-delete/confirm-delete.component';
+import { ConfirmPasswordComponent } from 'src/app/confirm-password/confirm-password';
 import { IncidentReport } from 'src/app/report-utils/incidentReport';
 import { ReportsService } from 'src/app/reports.service';
 
@@ -9,8 +9,8 @@ import { ReportsService } from 'src/app/reports.service';
   styleUrls: ['./report-list.component.css'],
 })
 export class ReportListComponent implements OnInit {
-  @ViewChild(ConfirmDeleteComponent)
-  confirmDeleteDialog!: ConfirmDeleteComponent;
+  @ViewChild(ConfirmPasswordComponent)
+  confirmPasswordDialog!: ConfirmPasswordComponent;
   reports: IncidentReport[] = [];
   reportKey: number = -1;
   constructor(private rs: ReportsService) {}
@@ -21,6 +21,8 @@ export class ReportListComponent implements OnInit {
 
   onReportDelete(event: { rKey: number }) {
     this.reportKey = event.rKey;
-    this.confirmDeleteDialog.openDialog();
+    this.confirmPasswordDialog.openDialog(
+      new IncidentReport(-999, new Date(), 'closed', '', [], '', '', '', 'FAKE')
+    );
   }
 }

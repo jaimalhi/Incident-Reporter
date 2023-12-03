@@ -16,7 +16,7 @@
       />
     </div>
     <div id="delete-modal-btns">
-      <button type="submit" class="btn btn-secondary" (click)="closeDialog()">
+      <button type="button" class="btn btn-secondary" (click)="closeDialog()">
         Cancel
       </button>
       <button type="submit" class="btn btn-danger" [disabled]="!form.valid">
@@ -24,4 +24,8 @@
       </button>
     </div>
   </form>
+</dialog>
+
+<dialog #errorDialog>
+  <h1>Incorrect Password</h1>
 </dialog>

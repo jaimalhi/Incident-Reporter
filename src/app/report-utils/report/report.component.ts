@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { IncidentReport } from '../incidentReport';
+import { GeocodeService } from 'src/app/geocode.service';
 
 @Component({
   selector: 'app-report',
@@ -12,26 +13,21 @@ export class ReportComponent implements OnInit {
   @Input() report!: IncidentReport;
   @Output() delete = new EventEmitter();
 
-  reportLocation: string = 'N/A';
+  cityName: string = 'N/A';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private gs: GeocodeService) {}
 
   ngOnInit() {
-    // this.fetchMapLocation();
+    this.fetchMapLocation();
   }
 
   fetchMapLocation(): void {
-    let lat = this.report.location[0];
-    let long = this.report.location[1];
-    this.http
-      .get<any>(`https://geocode.maps.co/reverse?lat=${lat}&lon=${long}`)
-      .subscribe((data: any) => {
-        if (data && data.address && data.address.city) {
-          this.reportLocation = data.address.city;
-        } else {
-          console.error('City not found in response');
-        }
+    // Assuming report.location is an array of [latitude, longitude]
+    if (this.report.location && this.report.location.length === 2) {
+      this.gs.getCity(this.report.location).subscribe((city) => {
+        this.cityName = city;
       });
+    }
   }
 
   onDelete(event: any, rKey: number) {

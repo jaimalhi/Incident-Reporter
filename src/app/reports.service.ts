@@ -16,6 +16,7 @@ export class ReportsService {
   reports: IncidentReport[] = [];
   private keyList: number[] = [-1];
   private apiUrl = env.apiUrl;
+
   constructor(private http: HttpClient, private router: Router) {
     // this.reports = [
     //   new IncidentReport(
@@ -124,6 +125,7 @@ export class ReportsService {
 
   add(newReport: IncidentReport) {
     // get 1 past max num in keyList, set as new key
+    this.keyList = this.reports.map((report) => report.key);
     let maxNumber = Math.max(...this.keyList);
     newReport.key = maxNumber + 1;
     newReport.time = new Date();
@@ -163,9 +165,8 @@ export class ReportsService {
     this.deleteReport(rKey).subscribe({
       next: (response) => {
         console.log('Report deleted successfully');
-        this.reports = this.reports.filter(
-          (r: { key: number }) => r.key !== rKey
-        );
+        this.reports = this.reports.filter((r) => r.key !== rKey);
+        window.location.reload();
         // Handle successful deletion here (e.g., update the UI)
       },
       error: (error) => {
@@ -173,7 +174,10 @@ export class ReportsService {
         // Handle error here (e.g., show error message)
       },
     });
-    return this.reports;
+  }
+
+  getSingleReport(rKey: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/documents/${rKey}`);
   }
 
   get() {

@@ -1,1 +1,29 @@
-<p>report-view for Report {{ rKey }}</p>
+<div class="card">
+  <img
+    *ngIf="imageIncluded"
+    [src]="report.picture | lowercase"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h4 class="card-title">{{ report.criminalName }}</h4>
+    <p class="card-text" *ngIf="extraInfoIncluded">
+      {{ report.extraInfo }}
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <b>Reported at:</b> {{ report.time | date : "MMM d, y - HH:mm" }}
+    </li>
+    <li class="list-group-item"><b>Location:</b> {{ cityName }}</li>
+    <li class="list-group-item">
+      <b>Status:</b> {{ report.status | uppercase }}
+      <a href="#" class="card-link">(CHANGE)</a>
+    </li>
+    <li class="list-group-item">
+      <b>Reported By:</b> {{ report.reporterName }} -
+      {{ report.reporterNum | phoneFormat }}
+    </li>
+  </ul>
+  <a routerLink="/home" class="btn btn-primary">Go Back</a>
+</div>

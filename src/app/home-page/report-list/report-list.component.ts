@@ -22,6 +22,5 @@ export class ReportListComponent implements OnInit {
   onReportDelete(event: { rKey: number }) {
     this.reportKey = event.rKey;
     this.confirmDeleteDialog.openDialog();
-    this.reports = this.rs.get(); // update list
   }
 }

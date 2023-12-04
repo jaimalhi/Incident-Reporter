@@ -20,3 +20,9 @@
 - leaflet with typescript: `npm install leaflet` `npm install @types/leaflet`
 - Geocoding: `https://geocode.maps.co/`
 - Hashify: `https://hashify.net/`
+
+## Demo
+
+![Home page of Incident Reporoter](/src/assets/incident-report-home.png)
+
+![Add page of Incident Reporoter](/src/assets/incident-report-add.png)

@@ -18,6 +18,7 @@ export class ReportViewComponent implements OnInit {
   imageIncluded: boolean;
   extraInfoIncluded: boolean;
   cityName: string;
+  isLoading: boolean;
   constructor(
     private activatedRoute: ActivatedRoute,
     private rs: ReportsService,
@@ -27,6 +28,7 @@ export class ReportViewComponent implements OnInit {
     this.imageIncluded = false;
     this.extraInfoIncluded = false;
     this.cityName = 'N/A';
+    this.isLoading = true;
   }
 
   ngOnInit(): void {
@@ -44,6 +46,7 @@ export class ReportViewComponent implements OnInit {
       );
       this.formatExtraAttributes(this.report.picture, this.report.extraInfo);
       this.fetchMapLocation();
+      this.isLoading = false;
     });
   }
 

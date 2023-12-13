@@ -43,7 +43,7 @@
         "reporterNum": "6046664444",
         "criminalInfo": "Johnny Dang",
         "location": [41.854551, -87.637683],
-        "picture": "https://img.texasmonthly.com/2019/11/johny-dang-throne.jpg?auto=compress&crop=faces&fit=fit&fm=jpg&h=0&ixlib=php-3.3.1&q=45&w=1250",
+        "picture": "https://img.texasmonthly.com/2019/11/johny-dang-throne.jpg",
         "extraInfo": "scams rappers out of 1 million",
         "time": "2023-11-30T22:10:44.964Z",
         "status": "open"

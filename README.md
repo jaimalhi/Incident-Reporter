@@ -24,7 +24,7 @@
 ### Environment
 
 - utilizes the `environments` folder in root directory containing API key to access database
-- Format: ` export const env = {
+- Format: `export const env = {
   production: false,
   apiUrl: 'https://your-backend-here.com/',
 };`
